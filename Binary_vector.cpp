@@ -1,3 +1,8 @@
+// Problem: Convert decimal numbers to binary and store in vector
+// Approach: Repeated division by 2 and storing remainders
+// Time Complexity: O(log n)
+// Space Complexity: O(n)
+
 #include <iostream>
 #include <vector>
 using namespace std;
