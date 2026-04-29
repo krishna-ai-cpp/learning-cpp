@@ -88,7 +88,7 @@ int foursum(vector<int>& vec) {
             int q = n - 1;
 
             while (p < q) {
-                sum += vec[i] + vec[j] + vec[p] + vec[q];
+                sum = vec[i] + vec[j] + vec[p] + vec[q];
 
                 if (sum > 0) {
                     p++;
