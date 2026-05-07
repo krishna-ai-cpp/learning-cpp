@@ -151,6 +151,10 @@ int main() {
         int sc = coords.first.second;
         int dr = coords.second.first;
         int dc = coords.second.second;
+        if ((isupper(board[sr][sc]) && isupper(board[dr][dc])) ||(islower(board[sr][sc]) && islower(board[dr][dc]))) {
+            cout << "same pieces cannot be captured\n";
+            continue; // skip move
+        }
 
         if (board[sr][sc] == '.') {
             cout << "NO PIECE FOUND\n";
