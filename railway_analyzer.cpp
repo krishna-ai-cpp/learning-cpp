@@ -42,8 +42,6 @@ class normalPass : public passenger {
 public:
     vector<int> travelHrs;
     vector<int> seatNo;
-    vector<string> travelHis;
-
     normalPass(vector<string> name, vector<int> id,
                vector<string> bookTrain, vector<int> Tprice,
                vector<int> travelHrs, vector<int> seatNo,
@@ -51,7 +49,6 @@ public:
         : passenger(name, id, bookTrain, Tprice) {
         this->travelHrs = travelHrs;
         this->seatNo = seatNo;
-        this->travelHis = travelHis;
     }
 
     void analyzeTravelPattern(int hrs) {
