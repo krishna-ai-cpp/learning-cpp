@@ -321,27 +321,45 @@ public:
 };
 int main() {
 
+    // Dummy object creation for taskManager constructor
     taskManager tm(
-        0, "", 0, 0, "", "",
-        "", "", "", false, 0, 0
+        0,
+        "",
+        0,
+        0,
+        "",
+        "",
+        "",
+        "",
+        "",
+        false,
+        0,
+        0
     );
+
+    // Linked List Object
+    slist s;
 
     int choice;
 
     do {
 
-        cout << "\n========== TASK MANAGER ==========\n";
+        cout << "\n========== SMART TASK MANAGER ==========\n";
 
         cout << "1. Add Task\n";
         cout << "2. Delete Task\n";
         cout << "3. Search Task\n";
-        cout << "4. Show Task Details\n";
-        cout << "5. Update Priority\n";
-        cout << "6. Complete Task\n";
+        cout << "4. Show Tasks\n";
+        cout << "5. Complete Task\n";
+        cout << "6. Update Priority\n";
         cout << "7. Generate Report\n";
-        cout << "8. Exit\n";
+        cout << "8. Linked List Insert Front\n";
+        cout << "9. Linked List Insert Back\n";
+        cout << "10. Linked List Delete\n";
+        cout << "11. Linked List Display\n";
+        cout << "12. Exit\n";
 
-        cout << "Enter choice: ";
+        cout << "Enter Choice: ";
         cin >> choice;
 
         switch(choice) {
@@ -363,26 +381,83 @@ int main() {
             break;
 
         case 5:
-            tm.upPriority();
+            tm.completedTask();
             break;
 
         case 6:
-            tm.completedTask();
+            tm.upPriority();
             break;
 
         case 7:
             tm.gen_report();
             break;
 
-        case 8:
-            cout << "Exiting Task Manager...\n";
+        // LINKED LIST FRONT INSERT
+        case 8: {
+
+            int value;
+
+            cout << "Enter value to insert at front: ";
+            cin >> value;
+
+            node* newNode = new node(value);
+
+            s.push_front(newNode);
+
+            cout << "Inserted at front successfully!\n";
+
+            break;
+        }
+
+        // LINKED LIST BACK INSERT
+        case 9: {
+
+            int value;
+
+            cout << "Enter value to insert at back: ";
+            cin >> value;
+
+            node* newNode = new node(value);
+
+            s.push_back(newNode);
+
+            cout << "Inserted at back successfully!\n";
+
+            break;
+        }
+
+        // DELETE NODE
+        case 10: {
+
+            int id;
+
+            cout << "Enter value to delete: ";
+            cin >> id;
+
+            s.deleteById(id);
+
+            break;
+        }
+
+        // DISPLAY LINKED LIST
+        case 11:
+
+            s.display();
+
+            break;
+
+        case 12:
+
+            cout << "Exiting Program...\n";
+
             break;
 
         default:
+
             cout << "Invalid Choice...\n";
         }
 
-    } while(choice != 8);
+    } while(choice != 12);
 
     return 0;
 }
